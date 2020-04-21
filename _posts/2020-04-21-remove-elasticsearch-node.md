@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Remove a node from an elasticsearch cluster
+title: Remove a node from an Elasticsearch cluster
 date:   2020-04-21
 categories: Elasticsearch
 ---

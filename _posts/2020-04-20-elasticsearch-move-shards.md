@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Moving shards between Elasticsearch nodes
+title: Move shards between Elasticsearch nodes
 date:   2020-04-20
 categories: Elasticsearch
 ---

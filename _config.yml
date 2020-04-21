@@ -6,6 +6,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 url: "http://denzhel.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
 github_username:  denzhel
+permalink: /:categories/:title/
 
 # Theme Configurations #
 remote_theme: thelehhman/plainwhite-jekyll

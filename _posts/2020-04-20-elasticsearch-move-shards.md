@@ -5,7 +5,7 @@ date:   2020-04-20
 categories: Elasticsearch
 ---
 
-Since one of our nodes used most of it's disk space, we needed to move some shards to other nodes.
+Since one of our nodes used most of its disk space, we needed to move some shards to other nodes.
 
 List all the nodes on your cluster:
 ```

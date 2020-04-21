@@ -19,8 +19,8 @@ plainwhite:
   social_links:
     github:  denzhel
   navigation:
-    - title: Categories
-      url: "/categories/"
+    - title: Topics
+      url: "/topics/"
   sitemap: true
 
 # Plugins #

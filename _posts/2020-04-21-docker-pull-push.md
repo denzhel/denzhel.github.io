@@ -1,8 +1,8 @@
 ---
 layout: post
-title: 123123
+title: Docker pull, modify and push
 date: 2020-04-21
-categories: Docker
+categories: Docker AWS
 ---
 
 Sometimes, we need to pull an official/non official images, modify them and push them to our image repository.

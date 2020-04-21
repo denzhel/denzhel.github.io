@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Docker pull, modify and push
+title: Docker pull, modify and push images
 date: 2020-04-21
 categories: Docker AWS
 ---

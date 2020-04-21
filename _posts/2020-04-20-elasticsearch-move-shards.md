@@ -69,7 +69,8 @@ curl -X POST -H "Content-Type: application/json" 'http://localhost:9200/_cluster
 
 Monitor the cluster status:
 ```
-ubuntu@prod-elasticsearch-12:~$ curl -X GET 'localhost:9200/_cluster/health?pretty'
+curl -X GET 'localhost:9200/_cluster/health?pretty'
+
 {
   "cluster_name" : "elasticsearch",
   "status" : "green",

@@ -19,10 +19,8 @@ plainwhite:
   social_links:
     github:  denzhel
   navigation:
-    - title: My Work
-      url: "/my-work"
-    - title: Resume
-      url: "/resume"
+    - title: Categories
+      url: "/categories.html"
   sitemap: true
 
 # Plugins #

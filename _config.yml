@@ -20,7 +20,7 @@ plainwhite:
     github:  denzhel
   navigation:
     - title: Categories
-      url: "/categories.html"
+      url: "/categories/"
   sitemap: true
 
 # Plugins #

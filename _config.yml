@@ -16,6 +16,7 @@ plainwhite:
     DevOps Engineer
           bigpanda
   date_format: "%b %-d, %Y"
+  sitemap: true
   social_links:
     github:  denzhel
 

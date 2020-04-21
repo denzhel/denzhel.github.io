@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Docker: pull, modify and push
+title: 123123
 date: 2020-04-21
-categories: Elasticsearch
+categories: Docker
 ---
 
 Sometimes, we need to pull an official/non official images, modify them and push them to our image repository.

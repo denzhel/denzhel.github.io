@@ -8,7 +8,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 github_username:  denzhel
 
 # Theme Configurations #
-theme: plainwhite
+remote_theme: thelehhman/plainwhite-jekyll
 plainwhite:
   name: Dennis Zheleznyak
   tagline: | 

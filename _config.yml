@@ -22,6 +22,7 @@ plainwhite:
     - title: Topics
       url: "/topics/"
   sitemap: true
+   disqus_shortname: denniszheleznyak
 
 # Plugins #
 plugins:

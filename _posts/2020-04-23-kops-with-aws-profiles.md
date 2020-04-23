@@ -48,5 +48,5 @@ Bonus - to avoid setting the backend store each time, you can use kops configura
 ```
 vi ~/.kops/config
 
-kops_state_store: s3://<BucketName/ClusterName>
+kops_state_store: s3://<ClusterName>
 ```

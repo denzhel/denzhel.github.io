@@ -19,14 +19,14 @@ Basically, the issue is that Amazon cannot allocate that many on demand machines
 The solution is to break the list into small lists and start them chunk by chunk:
 
 ```python
-    # The function that I use to break the list to smaller chunks
-    def chunks(list_to_chunk, chunk_by):
-        for i in range(0, len(list_to_chunk), chunk_by):
-            yield list_to_chunk[i:i + chunk_by]
+# The function that I use to break the list to smaller chunks
+def chunks(list_to_chunk, chunk_by):
+    for i in range(0, len(list_to_chunk), chunk_by):
+        yield list_to_chunk[i:i + chunk_by]
 
-    # The loop I use for starting the chunks one by one
-    # Where 14 is the chunk size I chose to be on the safe size 200/14 = 14 machines in each chunk
-    # get_ids() is the function I use to retrieve the list
-    for chunk_group in list(chunks(get_ids(), 14)):
-        ec2.start_instances(InstanceIds=chunk_group, DryRun=test_mode)
+# The loop I use for starting the chunks one by one
+# Where 14 is the chunk size I chose to be on the safe size 200/14 = 14 machines in each chunk
+# get_ids() is the function I use to retrieve the list
+for chunk_group in list(chunks(get_ids(), 14)):
+    ec2.start_instances(InstanceIds=chunk_group, DryRun=test_mode)
 ```

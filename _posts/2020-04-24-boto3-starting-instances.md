@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Start instances with boto3 exception
+title: Boto3 exception when starting AWS instances
 date:   2020-04-24
 categories: Python
 ---
@@ -18,7 +18,7 @@ Basically, the issue is that Amazon cannot allocate that many on demand machines
 
 The solution is to break the list into small lists and start them chunk by chunk:
 
-```Python
+```python
     # The function that I use to break the list to smaller chunks
     def chunks(list_to_chunk, chunk_by):
         for i in range(0, len(list_to_chunk), chunk_by):

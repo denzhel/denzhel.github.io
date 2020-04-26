@@ -23,7 +23,6 @@ plainwhite:
       url: "/topics/"
   sitemap: true
   disqus_shortname: denzhel
-  analytics_id: "UA-164545937-1"
 
 # Plugins #
 plugins:

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Troubles of the past: Cisco
+title: "Troubles of the past: Cisco"
 date:   2020-04-28
 categories: Past
 ---

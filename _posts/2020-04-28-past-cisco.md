@@ -5,7 +5,7 @@ date:   2020-04-28
 categories: Past
 ---
 
-## Configure login with username
+## Configure login with a username
 
 ```
 username admin privilege 15 password cisco
@@ -16,7 +16,7 @@ login local
 ```
 
 ## Configure logging
-By default, cisco switches are not configured with saving history, you can use
+By default, cisco switches are not configured for saving history, you can use
 the following to enable it:
 
 ```
@@ -107,7 +107,7 @@ reload
 
 ## Upgrade license level
 
-If you want various features such as Multicase, you need to upgrade the license level:
+If you want various features such as multicast, you need to upgrade the license level:
 
 ```
 license right-to-use activate ip-services all accepteula

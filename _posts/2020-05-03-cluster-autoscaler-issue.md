@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Cluster-autoscaler upgrade broke auto-discovery
+title: Cluster-autoscalers upgrade broke auto-discovery
 date:   2020-05-03
 categories: Kubernetes
 ---

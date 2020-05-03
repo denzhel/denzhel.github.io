@@ -17,7 +17,7 @@ kubernetes.io/cluster/<YOUR CLUSTER NAME>
 
 After the upgrade(for me it was 0.X -> 1.15), auto-discovery stopped working.
 
-We then realized the tags was changed to:
+We then realized the tags were changed to:
 
 
 ```
@@ -25,4 +25,4 @@ k8s.io/cluster-autoscaler/enabled
 k8s.io/cluster-autoscaler/<YOUR CLUSTER NAME>
 ```
 
-Once the tags are changed, everything was back to normal.
+Once the tags were changed, auto-discovery started discovering again.

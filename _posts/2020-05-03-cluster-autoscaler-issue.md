@@ -16,6 +16,7 @@ kubernetes.io/cluster/<YOUR CLUSTER NAME>
 ```
 
 After the upgrade(for me it was 0.X -> 1.15), auto-discovery stopped working.
+
 We then realized the tags was changed to:
 
 

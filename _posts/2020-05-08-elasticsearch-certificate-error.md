@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Elasticsearch: file does not contain valid certificates"
+title: "File does not contain valid certificates"
 date:   2020-05-08
 categories: Elasticsearch
 ---

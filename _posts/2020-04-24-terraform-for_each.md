@@ -34,7 +34,6 @@ test:      <===== The name of the security group
 ```
 
 As time passes by, I need to update the file with various security groups and rules. The problem starts here.
-
 ```hcl
 test:
 - open_port: 22             <====== The new
@@ -45,7 +44,6 @@ test:
 
 Our logic tells us to always append the new rules to the end of the file, but after all, we are humans.
 As soon as you append your new rules before the existing ones and run "terraform apply", the following happens:
-
 ```hcl
   # aws_security_group_rule.bp_service_sg_rule["0"] must be replaced
 -/+ resource "aws_security_group_rule" "bp_service_sg_rule" {
@@ -87,13 +85,11 @@ You ask why ? Well .. the way I've configured for_each.
 The current for_each uses the rules index as key, meaning it can be changed according to the position in the YAML file - BAD.
 
 To overcome this issue, I needed to assemble a unique key:
-
 ```hcl
 for_each = { for rules in local.security_group_rules : "sg:${rules.service_name}||allow_port:${rules.open_port}||from:${rules.to_group}" => rules }
 ``` 
 
 Now, all the resources have a unique key:
-
 ```hcl
 aws_security_group_rule.bp_service_sg_rule["sg:kafka||allow_port:telegraf||from:grafana"]
 ```

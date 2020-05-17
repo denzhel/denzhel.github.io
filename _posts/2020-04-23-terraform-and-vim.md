@@ -13,14 +13,12 @@ Other than highlighting it provides auto formatting(indenting) of your code inst
 I use Vundle as a Vim Plugin Manager, I'll show how to install it and the plugin itself.
 
 First, install the plugin manager:
-
-```
+```shell
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 ```
 
 Add the following block to ~/.vimrc (this will configure Vim to use Vundle and install vim-terraform):
-
-```
+```shell
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -41,16 +39,14 @@ filetype plugin indent on    " required
 ```
 
 In addition, add the following block to ~/.vimrc:
-
-```
+```shell
 " ## Add Terraform Configurations ##
 let g:terraform_align=1
 let g:terraform_fmt_on_save=1
 ```
 
 Open Vim and run:
-
-```
+```shell
 :PluginInstall
 ```
 

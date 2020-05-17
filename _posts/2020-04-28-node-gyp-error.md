@@ -8,14 +8,12 @@ categories: Node
 If you've upgraded your mac to Catalina 10.15.4, xcode probably got broken. 
 
 I realized it when I tried running:
-
-```
+```shell
 npm install
 ```
 
 This is what I got in return:
-
-```
+```shell
 gyp: No Xcode or CLT version detected!
 gyp ERR! configure error 
 gyp ERR! stack Error: `gyp` failed with exit code: 1
@@ -23,12 +21,10 @@ gyp ERR! stack     at ChildProcess.onCpExit (/Users/dennis/.nvm/versions/node/v1
 gyp ERR! stack     at ChildProcess.emit (events.js:310:20)
 gyp ERR! stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:275:12)
 gyp ERR! System Darwin 19.4.0
-
 ```
 
 To fix it, we need to remove the old xcode and reinstall it:
-
-```
+```shell
 xcode-select --print-path
 
 sudo rm -rf OutPutFromPreviousCommand
@@ -37,8 +33,7 @@ xcode-select --install
 ```
 
 After xcode has been installed, try running npm with the latest version of openssl(brew):
-
-```
+```shell
 CPPFLAGS=-I/usr/local/opt/openssl@1.1/include LDFLAGS=-L/usr/local/opt/openssl@1.1/lib npm install
 ```
 

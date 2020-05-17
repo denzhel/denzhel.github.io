@@ -9,8 +9,7 @@ If you've upgraded your Kubernetes cluster-autoscaler from 0.X to 1.X and using 
 to find AWS ASGs, make sure to update the ASGs tags since they were changed.
 
 The following resource tags on the AWSs ASG resource it self are required by the autoscaler:
-
-```
+```shell
 k8s.io/cluster-autoscaler/enabled 
 kubernetes.io/cluster/<YOUR CLUSTER NAME>
 ```
@@ -18,9 +17,7 @@ kubernetes.io/cluster/<YOUR CLUSTER NAME>
 After the upgrade(for me it was 0.X -> 1.15), auto-discovery stopped working.
 
 We then realized the tags were changed to:
-
-
-```
+```shell
 k8s.io/cluster-autoscaler/enabled
 k8s.io/cluster-autoscaler/<YOUR CLUSTER NAME>
 ```

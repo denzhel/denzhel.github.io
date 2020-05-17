@@ -6,7 +6,7 @@ categories: Elasticsearch
 ---
 
 To remove a node from an elasticsearch cluster, first get its IP address:
-```
+```shell
 curl -X GET "localhost:9200/_nodes/NodeName/id?pretty"
 
 {
@@ -29,16 +29,18 @@ curl -X GET "localhost:9200/_nodes/NodeName/id?pretty"
   }
 }
 ```
+
 Exclude the node from shard allocation:
-```
+```shell
 curl -XPUT localhost:9200/_cluster/settings?pretty -H 'Content-Type: application/json' -d '{
   "transient" :{
       "cluster.routing.allocation.exclude._ip" : "1.1.1.1"
    }
 }';
 ```
+
 Wait for the cluster to finish reallocate the shards(until it becomes 0):
-```
+```shell
 curl -X GET 'localhost:9200/_cluster/health?pretty'
 
 {
@@ -57,8 +59,9 @@ curl -X GET 'localhost:9200/_cluster/health?pretty'
   "number_of_in_flight_fetch" : 0
 }
 ```
+
 Shut down the node and remove the exclusion:
-```
+```shell
 curl -XPUT localhost:9200/_cluster/settings?pretty -H 'Content-Type: application/json' -d 
 '{
   "transient" :{

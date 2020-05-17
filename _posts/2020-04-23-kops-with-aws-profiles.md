@@ -11,21 +11,20 @@ These credentials are the same as the ones you use to interact with your AWS acc
 Sometimes, you have multiple accounts and/or mutiple users with different permissions, different keys and secret keys.
 Personally, I avoid setting these sensitive keys as environment variables by using the following method.
 
-```
+```shell
 Kops - Version 1.16.0
 AWS - aws-cli/2.0.8 Python/3.8.2 Darwin/19.4.0 botocore/2.0.0dev12
 ```
 
 First, update your aws configuration:
-
-```
+```shell
 vi ~/.aws/config
 
 [profile kops_admin]
 region=XX-XXXX-X
 ```
 
-```
+```shell
 vi ~/.aws/credentials
 
 [kops_admin]
@@ -34,8 +33,7 @@ aws_secret_access_key=XXXXXXXXXX
 ```
 
 Add an alias to your bash/zsh profile:
-
-```
+```shell
 vi ~/.zshrc
 
 alias kops="AWS_ACCESS_KEY_ID=$(aws configure get profile.kops_admin.aws_access_key_id) AWS_SECRET_ACCESS_KEY=$(aws configure get profile.kops_admin.aws_secret_access_key) kops"
@@ -44,8 +42,7 @@ alias kops="AWS_ACCESS_KEY_ID=$(aws configure get profile.kops_admin.aws_access_
 Now, you can use kops without setting anything beforehand 
 
 Bonus - to avoid setting the backend store each time, you can use kops configuration file (I use Amazons S3)
-
-```
+```shell
 vi ~/.kops/config
 
 kops_state_store: s3://<ClusterName>

@@ -8,16 +8,14 @@ categories: Terraform
 To use Terraforms parsing powers of YAML and JSON files, there are some built-in functions.
 
 The first one is jsondecode, we can use it as follows:
-
-```
+```hcl
 locals {
   services_file   = jsondecode(file("${path.module}/services.json"))
 }
 ```
 
 Use a for loop to parse the file and create a map of objects, our instances.
-
-```
+```hcl
 instances = flatten([
     for instance_key, instance in local.services_file.services : [
       for index in range(instance.instance_count) : {
@@ -33,8 +31,7 @@ instances = flatten([
 ```
 
 Our JSON file:
-
-```
+```json
 {                                                                                                                                                                                 
   services: {
     frontend: {
@@ -51,8 +48,7 @@ Our JSON file:
 ```
 
 The second function is yamldecode:
-
-```
+```hcl
 locals {
 security_groups_file = yamldecode(file("${path.module}/../security_groups.yml"))
 }

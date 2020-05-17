@@ -10,14 +10,13 @@ in our testing environment.
 
 There are many ways to do that, including CloudWatch. I chose the code way and I've stumbled upon the following
 error when trying to power on all of the 200 instances at once:
-```
+```shell
 botocore.exceptions.ClientError: An error occurred (InsufficientInstanceCapacity) when calling the StartInstances operation (reached max retries: 4): Insufficient capacity.
 ```
 
 Basically, the issue is that Amazon cannot allocate that many on demand machines for you. 
 
 The solution is to break the list into small lists and start them chunk by chunk:
-
 ```python
 # The function that I use to break the list to smaller chunks
 def chunks(list_to_chunk, chunk_by):

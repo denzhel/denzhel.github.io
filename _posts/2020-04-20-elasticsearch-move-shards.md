@@ -8,12 +8,12 @@ categories: Elasticsearch
 Since one of our nodes used most of its disk space, we needed to move some shards to other nodes.
 
 List all the nodes on your cluster:
-```
+```shell
 curl -X GET "localhost:9200/_cat/nodes"
 ```
 
 Retreive the node id
-``` 
+``` shell
 curl -X GET "localhost:9200/_nodes/NodeName/id?pretty"
 
 {
@@ -38,12 +38,12 @@ curl -X GET "localhost:9200/_nodes/NodeName/id?pretty"
 ```
 
 Find a big index:
-```
+```shell
 curl -X GET 'localhost:9200/_cat/indices?v&s=store.size:desc'
 ```
 
 Make sure it is located on the overloaded server:
-```
+```shell
 curl -X GET 'localhost:9200/_cat/shards/IndexName?v'
 
 index                    shard prirep state      docs  store ip        node                  
@@ -57,7 +57,7 @@ IndexName$2018_3 1     r      STARTED 8000627 17.1gb 127.0.0.1 prod-elasticsearc
 Use the commands above to choose a destination node.
 
 Move the replica shard 1 to the chosen server:
-```
+```shell
 curl -X POST -H "Content-Type: application/json" 'http://localhost:9200/_cluster/reroute' -d '{
     "commands" : [ {
   "move" : {
@@ -68,7 +68,7 @@ curl -X POST -H "Content-Type: application/json" 'http://localhost:9200/_cluster
 ```
 
 Monitor the cluster status:
-```
+```shell
 curl -X GET 'localhost:9200/_cluster/health?pretty'
 
 {

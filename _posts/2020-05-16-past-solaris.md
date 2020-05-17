@@ -323,4 +323,84 @@ Also, please make sure that the user with the auto login have the proper permiss
 ```shell
 chmod 755 /home/user
 ```
+
+## Reading Temp Sensors with Solaris 10
+```shell
+/usr/sbin/prtpicl -v -c temperature-sensor
+
+OR
+
+/usr/sfw/bin/ipmitool sdr list |grep temp
+```
+
+## Configure NFS Client/Server
+To configure a NFS server, add the following to /etc/dfs/dfstab:
+```shell
+share -F nfs -o rw  /records
+```
+
+To configure a NFS client, add the following to /etc/vfstab:
+```shell
+192.168.0.1:/records   -                /records nfs      -      yes       bg,rw,soft
+```
+
+## Configure a Virtual VNC session
+Check the current status of VNC:
+```shell
+svcs -a | grep -i vnc
+disabled 13:47:12 svc:/application/x11/xvnc-inetd:default
+```
+
+Add the following to /etc/services:
+```shell
+vnc-server 5900/tcp # Xvnc
+```
+
+Create the following file with the following content:
+```shell
+vi /etc/X11/gdm/custom.conf
+
+[xdmcp]
+Enable=true
+[security]
+DisallowTCP=false
+AllowRoot=true
+AllowRemoteRoot=true
+```
+
+Enable the service and verify that it's working:
+```shell
+svcadm enable svc:/application/x11/xvnc-inetd:default
+
+svcs svc:/application/x11/xvnc-inetd:default
+STATE STIME FMRI
+online 14:46:43 svc:/application/x11/xvnc-inetd:default
+```
+
+Change the resolution of the vnc:
+```shell
+inetadm -m svc:/application/x11/xvnc-inetd:default exec="/usr/X11/bin/Xvnc \\ -geometry 1280x720 -inetd -query localhost -once securitytypes=none"
+```
+
+Make the session persistent:
+```shell
+inetadm -m svc:/application/x11/xvnc-inetd:default wait=TRUE
+```
+
+If you see a green screen with an X, verify the following:
+```shell
+ps –ef |grep –i dtlogin
+
+/usr/dt/bin/dtlogin -daemon -udpPort 0
+```
+
+Run the following to fix it:
+```shell
+svccfg -s cde-login setprop 'dtlogin/args=""'
+```
+
+Restart the services:
+```shell
+svcadm restart cde-login
+svcadm restart svc:/application/x11/xvnc-inetd:default
 ```

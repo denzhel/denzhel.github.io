@@ -316,6 +316,7 @@ cc pam_allow.c -o /usr/lib/security/pam_allow.so.1 -Kpic -G
 If problems occur, please create .dmrc file inside the user's home directory with the following content:
 
 [Desktop]
+
 Session=gnome
 
 Also, please make sure that the user with the auto login have the proper permissions:

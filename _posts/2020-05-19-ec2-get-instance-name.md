@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Get EC2 Instance's Name
+title: "AWS CLI: get EC2 Instance's Name"
 date:   2020-05-19
 categories: Amazon
 ---

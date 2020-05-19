@@ -11,7 +11,7 @@ Curator can perform alot of tasks, one of them is delete old indices.
 In my case, I had to delete indices older than 14 days:
 
 ```shell
-/usr/local/bin/curator_cli delete_indices --ignore_empty_list --filter_list '[{"filtertype":"age","source":"creation_date","direction":"older","unit":"days","unit_count":14},{"filtertype":"pattern","kind":"prefix","value":"logstash"}]' > /var/log/timber/cron_delete_indices 2>&1
+/usr/local/bin/curator_cli delete_indices --ignore_empty_list --filter_list '[{"filtertype":"age","source":"creation_date","direction":"older","unit":"days","unit_count":14},{"filtertype":"pattern","kind":"prefix","value":"logstash"}]'
 ```
 
 If you want to run it nightly, simply add it to crontab and use this cron syntax:

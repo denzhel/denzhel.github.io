@@ -13,7 +13,7 @@ resource "aws_iam_policy" "bp_iam_policy" {
   policy = jsonencode(each.value)
 }
 ```
-Meaning: if var.is equals True, the true exporession will provide for_each to local.polocies_file.
+Meaning: if var.is equals True, the true exporession will provide for_each the local.polocies_file.
 If var.is equals False then provide an empty object.
 
 For 90 precent of the cases, this syntax will work and for the other 10 precent you will get:

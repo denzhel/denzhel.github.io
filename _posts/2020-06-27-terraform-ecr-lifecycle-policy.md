@@ -5,7 +5,7 @@ date:   2020-06-27
 categories: Terraform
 ---
 
-There are numouros ways of applying a life cycle policy to an ECR, I want to show one of them.
+There are numerous ways of applying a life cycle policy to an ECR, I want to show one of them.
 
 We manage the ECR list in a yml file:
 ```yml
@@ -17,7 +17,7 @@ We import the file using yaml decode function:
 repositories_file      = yamldecode(file("${path.module}/lists/ecr_repositories.list"))
 ```
 
-Since our setup uses modules, we pass the module the list as a variable:
+Since our setup uses modules, we pass the list as a variable:
 ```hcl
 module "aws_ecr" {
   source           = "./modules/aws/ecr"
@@ -66,3 +66,10 @@ resource "aws_ecr_lifecycle_policy" "bp_ecr_repo_lifecycle_policy" {
 EOF
 }
 ```
+
+Notice that:
+```hcl
+for_each = { for repo in var.ecr_repositories.ecr_repositories : repo.name =>
+    { expiration_days = repo.expiration_days, expiration_count = repo.expiration_count } }
+```
+For_each function builds the key value, the key being the repo name and the values are the ${expiration_days} and ${expiration_count} variables.

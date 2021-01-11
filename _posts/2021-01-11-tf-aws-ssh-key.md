@@ -20,7 +20,7 @@ aws secretsmanager create-secret \
 ```
 
 Use this Terraform block to get the secret:
-```HCL
+```hcl
 data "aws_secretsmanager_secret_version" "<SecretName>" {
   secret_id = "<PathToSecretName>"
 }
@@ -36,7 +36,7 @@ resource "aws_key_pair" "<KeyPairName>" {
 ```
 
 Finally, use it inside the ec2_instance module:
-```HCL
+```hcl
 resource "aws_instance" "<InstanceName>" {
   ...
   key_name = aws_key_pair.atlas_es_data_key_pair[0].key_name

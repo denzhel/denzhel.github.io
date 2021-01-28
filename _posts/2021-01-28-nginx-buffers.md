@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Increase Nginx buffers due to errros
-date:   2021-01-12
+date:   2021-01-28
 categories: Nginx
 ---
 If you're getting the following error in your nginx logs:

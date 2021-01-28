@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Increase Nginx buffers due to errros
+title: Query elasticsearch for disk usage
 date:   2021-01-28
 categories: Elasticsearch
 ---
